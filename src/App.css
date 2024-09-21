@@ -1,38 +1,232 @@
-.App {
+.app-layout {
+  min-height: 100vh;
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 400px;
+  background-color: #325776;
+  padding: 20px;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  color: white;
+  overflow-y: auto;
+  transform: translateX(525px);
+  transition: 0.4s ease all;
+}
+
+.sidebar.siderbar-open {
+  transform: translateX(0);
+}
+
+.sidebar-item {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.sidebar-item:hover {
+  background-color: #007a99;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* General Layout */
+.layout {
+  min-height: 100vh;
+}
+
+.layout--light {
+  background-color: #1a1a2e;
+}
+
+.layout--dark {
+  background-color: #325776;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Explore Button Container */
+.explore-button-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.explore-button-container--more {
+  text-align: center;
+  min-height: unset;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  width: 400px;
+  background-color: #325776;
+  padding: 20px;
+  color: white;
+  z-index: 100;
+  transition: 0.4s ease all;
+  transform: translateX(525px);
+}
+
+.sidebar--open {
+  transform: translateX(0);
+}
+
+.sidebar__title {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Accordion */
+.accordion {
+  margin-bottom: 10px;
+  background-color: #1a1a2e;
+  padding: 10px;
+  border-radius: 5px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.accordion__header {
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.accordion__arrow {
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  background-size: contain;
+  transition: all 0.3s;
+}
+
+.accordion__arrow--up {
+  transition: all 0.3s;
+  transform: rotate(0deg);
+}
+
+.accordion__arrow--down {
+  transition: all 0.3s;
+  transform: rotate(180deg);
+}
+
+.accordion__content {
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.accordion__content--closed {
+  max-height: 0;
+}
+
+.accordion__item {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.accordion__item-img {
+  max-width: 33px;
+  max-height: 33px;
+  margin-right: 10px;
+}
+
+/* Overlay */
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+}
+
+/* Provide detail CSS */
+.provider-details {
+  color: #f2f2f2;
+  padding: 40px;
+}
+
+.provider-details__heading {
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 20px;
+}
+
+.provider-details__logo {
+  max-width: 100px;
+  max-height: 100px;
+  margin-right: 10px;
+}
+
+.provider-details__title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.provider-details__section {
+  margin-top: 20px;
+}
+
+.provider-details__subtitle {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.provider-details__description {
+  line-height: 1.6;
+}
+
+.provider-details__swagger,
+.provider-details__contact div {
+  margin-top: 5px;
+  font-size: 16px;
+}
+
+.provider-details__contact div {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.provider-details__contact div::before {
+  content: "";
+  width: 10px;
+}
+
+/* Common */
+
+button {
+  background-color: #00a3cc;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  cursor: pointer;
 }
